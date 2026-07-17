@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0c0c0e;
+  --bg-elevated: #1a1a1e;
+  --card: #1e1e23;
+  --border: #2c2c33;
+  --gold: #e8b64a;
+  --red: #b3121f;
+  --text: #f2ede1;
+  --text-dim: #9b968c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+/* Film-strip signature bar */
+.filmstrip {
+  height: 12px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--bg) 0px, var(--bg) 6px,
+    var(--red) 6px, var(--red) 20px
+  );
+}
+
+/* Nav bar */
+header.site-header {
+  background: var(--bg-elevated);
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.logo span { color: var(--red); }
+
+nav#auth-status {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+nav#auth-status a {
+  color: var(--gold);
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+nav#auth-status a:hover { text-decoration: underline; }
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+h1.page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  margin-top: 0;
+  margin-bottom: 28px;
+  font-size: 14px;
+}
+
+/* Search bar */
+#search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+#search-input, #genre-select {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+#search-input { flex: 1; min-width: 200px; }
+
+#search-bar button {
+  background: var(--gold);
+  color: #1a1a1e;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#search-bar button:hover { background: #f0c766; }
+
+/* Movie grid */
+#movie-list, #watchlist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.movie-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.poster {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: rgba(255,255,255,0.85);
+  position: relative;
+}
+
+.poster::before {
+  content: "🎬";
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.poster-0 { background: linear-gradient(135deg, #6a1b1b, #b3121f); }
+.poster-1 { background: linear-gradient(135deg, #1b3a6a, #2c5aa0); }
+.poster-2 { background: linear-gradient(135deg, #4a1b6a, #7d2ca0); }
+.poster-3 { background: linear-gradient(135deg, #1b5c3a, #2a8a5a); }
+.poster-4 { background: linear-gradient(135deg, #6a4a1b, #b38312); }
+
+.movie-info { padding: 14px; }
+
+.movie-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.movie-info p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.rating-line { color: var(--gold) !important; font-weight: 600; }
+
+.action-row {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.action-row button {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.action-row button:hover {
+  background: var(--gold);
+  color: #1a1a1e;
+  border-color: var(--gold);
+}
+
+.watchlist-btn {
+  background: var(--red) !important;
+  border-radius: 6px !important;
+  width: auto !important;
+  padding: 0 12px;
+  color: var(--text) !important;
+  border: none !important;
+}
+
+.watchlist-btn:hover { background: #d4182a !important; }
+
+/* Forms (login/register) */
+.auth-box {
+  max-width: 380px;
+  margin: 60px auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 32px;
+}
+
+.auth-box h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: var(--gold);
+  margin-top: 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.auth-box input {
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.auth-box button {
+  width: 100%;
+  background: var(--gold);
+  color: #1a1a1e;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auth-box button:hover { background: #f0c766; }
+
+.auth-box p#message {
+  text-align: center;
+  font-size: 14px;
+}
+
+.auth-box .switch-link {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.auth-box .switch-link a { color: var(--gold); }

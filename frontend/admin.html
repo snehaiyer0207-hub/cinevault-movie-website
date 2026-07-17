@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel — CineVault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="filmstrip"></div>
+    <header class="site-header">
+        <a href="index.html" class="logo">CINE<span>VAULT</span></a>
+        <nav id="auth-status"></nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Admin Panel</h1>
+        <p class="subtitle">Add, edit, or delete movies.</p>
+
+        <div class="auth-box" style="max-width: 500px;">
+            <h1 id="form-title">Add New Movie</h1>
+            <input type="hidden" id="edit-movie-id">
+            <input type="text" id="movie-title" placeholder="Title" required>
+            <input type="text" id="movie-genre" placeholder="Genre (e.g. Action, Comedy)">
+            <input type="number" id="movie-year" placeholder="Release Year">
+            <input type="text" id="movie-description" placeholder="Description">
+            <button onclick="submitMovie()">Save Movie</button>
+            <button onclick="resetForm()" style="background: var(--border); color: var(--text); margin-top: 8px;">Clear Form</button>
+        </div>
+
+        <p id="admin-message" style="text-align:center;"></p>
+
+        <h1 class="page-title" style="margin-top: 40px;">All Movies</h1>
+        <div id="movie-list"></div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
